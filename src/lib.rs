@@ -1,3 +1,5 @@
+pub mod utils;
+
 extern crate crypto;
 
 use crypto::blowfish::Blowfish;
@@ -43,6 +45,7 @@ pub fn decrypt(key: &[u8], data: &[u8]) -> Vec<u8> {
 
     decrypted
 }
+
 
 fn round_len(len: usize, block_size: usize) -> usize {
     let remainder = len % block_size;
