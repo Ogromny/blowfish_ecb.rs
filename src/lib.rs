@@ -46,10 +46,8 @@ pub fn decrypt(key: &[u8], data: &[u8]) -> Vec<u8> {
 
 fn round_len(len: usize, block_size: usize) -> usize {
     let remainder = len % block_size;
-    // block is a divisible of 8
     if remainder == 0 {
         len
-    // block isn't a 8 divisible so add the necessary length to be divisible by 8
     } else {
         len + block_size - remainder
     }
