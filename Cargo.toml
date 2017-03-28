@@ -1,0 +1,7 @@
+[package]
+name = "blowfish_ecb"
+version = "0.1.0"
+authors = ["Ogromny <ogromny@openmailbox.org>"]
+
+[dependencies]
+rust-crypto = "^0.2"
