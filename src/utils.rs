@@ -1,3 +1,7 @@
+/// Converts an array of u8 to hexadecimal.
+///
+/// # Arguments
+/// * `vec` - an array of u8.
 pub fn vec_to_hex(vec: &[u8]) -> String {
     let mut hex = String::with_capacity(vec.len() * 2);
     for byte in vec {
@@ -6,6 +10,10 @@ pub fn vec_to_hex(vec: &[u8]) -> String {
     hex
 }
 
+/// Converts a hexadecimal to an array of u8.
+///
+/// # Arguments
+/// * `hex` - a hexadecimal ```String```.
 pub fn hex_to_vec(hex: &str) -> Vec<u8> {
     let mut vec = Vec::with_capacity(hex.len());
     for chunk in hex.as_bytes().chunks(2) {

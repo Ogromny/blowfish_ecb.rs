@@ -7,6 +7,11 @@ use crypto::symmetriccipher::{BlockEncryptor, BlockDecryptor};
 
 const PADDING_BYTE: u8 = 0;
 
+/// Encrypt `data` with `key` and return it.
+///
+/// # Arguments
+/// * `key` - the key as an array of u8.
+/// * `data` - the data as an array of u8
 pub fn encrypt(key: &[u8], data: &[u8]) -> Vec<u8> {
     let blowfish = Blowfish::new(key);
     let block_size = <Blowfish as BlockEncryptor>::block_size(&blowfish);
@@ -24,6 +29,11 @@ pub fn encrypt(key: &[u8], data: &[u8]) -> Vec<u8> {
     encrypted
 }
 
+/// Decrypt `data` with `key` and return it.
+///
+/// # Arguments
+/// * `key` - the key as an array of u8.
+/// * `data` - the encrypted data as an array of u8
 pub fn decrypt(key: &[u8], data: &[u8]) -> Vec<u8> {
     let blowfish = Blowfish::new(key);
     let block_size = <Blowfish as BlockDecryptor>::block_size(&blowfish);
@@ -45,7 +55,6 @@ pub fn decrypt(key: &[u8], data: &[u8]) -> Vec<u8> {
 
     decrypted
 }
-
 
 fn round_len(len: usize, block_size: usize) -> usize {
     let remainder = len % block_size;
